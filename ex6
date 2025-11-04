@@ -1,32 +1,26 @@
 #include <iostream>
-#include <iomanip> // for setw and setfill
+#include <iomanip> 
 using namespace std;
 class Time {
 private:
 int hours;
 int minutes;
 public:
-// Default constructor
 Time() : hours(0), minutes(0) {}
-// Friend function to overload >> operator (input)
 friend istream& operator>>(istream& in, Time& t);
-// Friend function to overload << operator (output)
 friend ostream& operator<<(ostream& out, const Time& t);
 };
-// a) Overload >> to input hours and minutes
 istream& operator>>(istream& in, Time& t) {
 cout << "Enter hours: ";
 in >> t.hours;
 cout << "Enter minutes: ";
 in >> t.minutes;
-// Adjust in case minutes exceed 60
 if (t.minutes >= 60) {
 t.hours += t.minutes / 60;
 t.minutes = t.minutes % 60;
 }
 return in;
 }
-// b) Overload << to display time in hh:mm forma
 ostream& operator<<(ostream& out, const Time& t) {
 out << setw(2) << setfill('0') << t.hours << ":"
 << setw(2) << setfill('0') << t.minutes;
