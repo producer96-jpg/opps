@@ -1,7 +1,6 @@
 #include <iostream>
 #include <string>
 using namespace std;
-// Base Class 1: Person
 class Person {
 protected:
 string name;
@@ -17,7 +16,6 @@ void showPersonDetails() {
 cout << "Name: " << name << "\nAge: " << age << endl;
 }
 };
-// Base Class 2: Academic
 class Academic {
 protected:
 int rollNumber;
@@ -38,7 +36,6 @@ cout << "Marks in Subject " << (i + 1) << ": " << marks[i] << endl;
 }
 }
 };
-// Derived Class: Student
 class Student : public Person, public Academic {
 private:
 float totalMarks;
